@@ -129,11 +129,6 @@ if (!function_exists('trx_addons_sc_promo_add_in_elementor')) {
 							'label' => __( 'Text bg color', 'trx_addons' ),
 							'label_block' => false,
 							'type' => \Elementor\Controls_Manager::COLOR,
-							'default' => '',
-							'scheme' => [
-								'type' => \Elementor\Scheme_Color::get_type(),
-								'value' => \Elementor\Scheme_Color::COLOR_1,
-							],
 							'selectors' => [
 								'{{WRAPPER}} .sc_promo_text_inner' => 'background-color: {{VALUE}};',
 							]
@@ -215,11 +210,6 @@ if (!function_exists('trx_addons_sc_promo_add_in_elementor')) {
 							'label' => __( 'Image bg color', 'trx_addons' ),
 							'label_block' => false,
 							'type' => \Elementor\Controls_Manager::COLOR,
-							'default' => '',
-							'scheme' => [
-								'type' => \Elementor\Scheme_Color::get_type(),
-								'value' => \Elementor\Scheme_Color::COLOR_2,
-							],
 						]
 					);
 

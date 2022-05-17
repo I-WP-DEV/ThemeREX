@@ -1095,10 +1095,6 @@ if (!function_exists('trx_addons_sc_tourmaster_add_in_elementor_tts')) {
 						'label' => __( 'Frame Background Color', 'trx_addons' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
 						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_1,
-						],
 						/* IDs with not '-' are not allowed in Elementor's conditions
 						'condition' => [
 							'with-frame' => 'enable'

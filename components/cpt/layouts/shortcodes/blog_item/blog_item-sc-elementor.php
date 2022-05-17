@@ -175,11 +175,6 @@ if (!function_exists('trx_addons_sc_layouts_blog_item_add_in_elementor')) {
 					[
 						'label' => __( 'Image mask color', 'trx_addons' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_2,
-						],
 						'condition' => [
 							'type' => 'featured'
 						]
@@ -214,11 +209,6 @@ if (!function_exists('trx_addons_sc_layouts_blog_item_add_in_elementor')) {
 					[
 						'label' => __( 'Hovered mask color', 'trx_addons' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_2,
-						],
 						'condition' => [
 							'type' => 'featured'
 						]
@@ -480,10 +470,6 @@ if (!function_exists('trx_addons_sc_layouts_blog_item_add_in_elementor')) {
 						'label' => __( 'Text color', 'trx_addons' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
 						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_1,
-						],
 						'condition' => [
 							'type' => ['title', 'meta', 'excerpt', 'custom', 'button']
 						]
@@ -496,10 +482,6 @@ if (!function_exists('trx_addons_sc_layouts_blog_item_add_in_elementor')) {
 						'label' => __( 'Text color (hovered)', 'trx_addons' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
 						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_1,
-						],
 						'condition' => [
 							'type' => ['title', 'meta', 'excerpt', 'custom', 'button']
 						]

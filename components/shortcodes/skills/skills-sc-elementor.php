@@ -161,11 +161,6 @@ if (!function_exists('trx_addons_sc_skills_add_in_elementor')) {
 						'label' => __( 'Color', 'trx_addons' ),
 						'label_block' => false,
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_1,
-						]
 					]
 				);
 
@@ -175,11 +170,6 @@ if (!function_exists('trx_addons_sc_skills_add_in_elementor')) {
 						'label' => __( 'Background color', 'trx_addons' ),
 						'label_block' => false,
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_2,
-						],
 						'condition' => [
 							'type' => ['pie']
 						]
@@ -192,11 +182,6 @@ if (!function_exists('trx_addons_sc_skills_add_in_elementor')) {
 						'label' => __( 'Border color', 'trx_addons' ),
 						'label_block' => false,
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_3,
-						],
 						'condition' => [
 							'type' => ['pie']
 						]
@@ -280,11 +265,6 @@ if (!function_exists('trx_addons_sc_skills_add_in_elementor')) {
 									'name' => 'color',
 									'label' => __( 'Color', 'trx_addons' ),
 									'type' => \Elementor\Controls_Manager::COLOR,
-									'default' => '',
-									'scheme' => [
-										'type' => \Elementor\Scheme_Color::get_type(),
-										'value' => \Elementor\Scheme_Color::COLOR_1,
-									],
 								]
 							],
 							$this->get_icon_param() ),

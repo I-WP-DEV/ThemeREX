@@ -129,11 +129,6 @@ if (!function_exists('trx_addons_sc_icons_add_in_elementor')) {
 					[
 						'label' => __( 'Color', 'trx_addons' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'default' => '',
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_1
-						],
 					]
 				);
 				
@@ -235,11 +230,6 @@ if (!function_exists('trx_addons_sc_icons_add_in_elementor')) {
 									'name' => 'color',
 									'label' => __( 'Color', 'trx_addons' ),
 									'type' => \Elementor\Controls_Manager::COLOR,
-									'default' => '',
-									'scheme' => [
-										'type' => \Elementor\Scheme_Color::get_type(),
-										'value' => \Elementor\Scheme_Color::COLOR_1,
-									],
 								],
 								[
 									'name' => 'char',

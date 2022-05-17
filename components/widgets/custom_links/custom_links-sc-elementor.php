@@ -8,6 +8,9 @@
  */
 
 // Don't load directly
+use Elementor\Controls_Manager;
+use Elementor\Scheme_Color;
+
 if ( ! defined( 'TRX_ADDONS_VERSION' ) ) {
 	die( '-1' );
 }
@@ -95,7 +98,7 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 					[
 						'label' => __( 'Title', 'trx_addons' ),
 						'label_block' => false,
-						'type' => \Elementor\Controls_Manager::TEXT,
+						'type' => Controls_Manager::TEXT,
 						'placeholder' => __( "Widget title", 'trx_addons' ),
 						'default' => ''
 					]
@@ -107,7 +110,7 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 						'label' => __( 'Icons animation', 'trx_addons' ),
 						'label_block' => false,
 						'description' => wp_kses_data( __("Check if you want animate icons. Attention! Animation enabled only if in your theme exists .SVG icon with same name as selected icon", 'trx_addons') ),
-						'type' => \Elementor\Controls_Manager::SWITCHER,
+						'type' => Controls_Manager::SWITCHER,
 						'label_off' => __( 'Off', 'trx_addons' ),
 						'label_on' => __( 'On', 'trx_addons' ),
 						'return_value' => '1'
@@ -118,7 +121,7 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 					'links',
 					[
 						'label' => '',
-						'type' => \Elementor\Controls_Manager::REPEATER,
+						'type' => Controls_Manager::REPEATER,
 						'default' => apply_filters('trx_addons_sc_param_group_value', [
 							[
 								'title' => __( 'First link', 'trx_addons' ),
@@ -163,7 +166,7 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 									'name' => 'title',
 									'label' => __( 'Title', 'trx_addons' ),
 									'label_block' => false,
-									'type' => \Elementor\Controls_Manager::TEXT,
+									'type' => Controls_Manager::TEXT,
 									'placeholder' => __( "Link's title", 'trx_addons' ),
 									'default' => ''
 								],
@@ -171,7 +174,7 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 									'name' => 'url',
 									'label' => __( 'Link URL', 'trx_addons' ),
 									'label_block' => false,
-									'type' => \Elementor\Controls_Manager::URL,
+									'type' => Controls_Manager::URL,
 									'placeholder' => __( 'http://your-link.com', 'trx_addons' ),
 									'default' => ''
 								],
@@ -179,14 +182,14 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 									'name' => 'caption',
 									'label' => __( 'Button caption', 'trx_addons' ),
 									'label_block' => false,
-									'type' => \Elementor\Controls_Manager::TEXT,
+									'type' => Controls_Manager::TEXT,
 									'placeholder' => __( "Caption", 'trx_addons' ),
 									'default' => ''
 								],
 								[
 									'name' => 'image',
 									'label' => __( 'Image', 'trx_addons' ),
-									'type' => \Elementor\Controls_Manager::MEDIA,
+									'type' => Controls_Manager::MEDIA,
 									'default' => [
 										'url' => '',
 									],
@@ -197,7 +200,7 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 								[
 									'name' => 'description',
 									'label' => __( 'Description', 'trx_addons' ),
-									'type' => \Elementor\Controls_Manager::TEXTAREA,
+									'type' => Controls_Manager::TEXTAREA,
 									'placeholder' => __( "Short description of this item", 'trx_addons' ),
 									'default' => '',
 									'separator' => 'none',
@@ -208,17 +211,12 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 									'name' => 'color',
 									'label' => __( 'Link color', 'trx_addons' ),
 									'type' => \Elementor\Controls_Manager::COLOR,
-									'default' => '',
-									'scheme' => [
-										'type' => \Elementor\Scheme_Color::get_type(),
-										'value' => \Elementor\Scheme_Color::COLOR_1,
-									],
 								],
 								[
 									'name' => 'label',
 									'label' => __( 'Label', 'trx_addons' ),
 									'label_block' => false,
-									'type' => \Elementor\Controls_Manager::TEXT,
+									'type' => Controls_Manager::TEXT,
 									'placeholder' => __( "Label", 'trx_addons' ),
 									'default' => ''
 								],
@@ -226,17 +224,12 @@ if (!function_exists('trx_addons_sc_widget_custom_links_add_in_elementor')) {
 									'name' => 'label_bg_color',
 									'label' => __( 'Label bg Color', 'trx_addons' ),
 									'type' => \Elementor\Controls_Manager::COLOR,
-									'default' => '',
-									'scheme' => [
-										'type' => \Elementor\Scheme_Color::get_type(),
-										'value' => \Elementor\Scheme_Color::COLOR_2,
-									],
 								],
 								[
 									'name' => 'label_on_hover',
 									'label' => __( 'Show label on hover', 'trx_addons' ),
 									'label_block' => false,
-									'type' => \Elementor\Controls_Manager::SWITCHER,
+									'type' => Controls_Manager::SWITCHER,
 									'label_off' => __( 'Off', 'trx_addons' ),
 									'label_on' => __( 'On', 'trx_addons' ),
 									'return_value' => '1'

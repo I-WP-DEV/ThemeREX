@@ -207,24 +207,14 @@ if (!function_exists('trx_addons_sc_accordionposts_add_in_elementor')) {
 								[
 									'name' => 'color',
 									'label' => __( 'Icon Color', 'trx_addons' ),
-									'type' => \Elementor\Controls_Manager::COLOR,
-									'default' => '',
 									'description' => wp_kses_post( __("Selected color will also be applied to the subtitle. ", 'trx_addons')),
-									'scheme' => [
-										'type' => \Elementor\Scheme_Color::get_type(),
-										'value' => \Elementor\Scheme_Color::COLOR_1,
-									],
+									'type' => \Elementor\Controls_Manager::COLOR,
 								],
 								[
 									'name' => 'bg_color',
 									'label' => __( 'Icon Background Color', 'trx_addons' ),
-									'type' => \Elementor\Controls_Manager::COLOR,
-									'default' => '',
 									'description' => wp_kses_post( __("Selected color will also be applied to the subtitle. ", 'trx_addons')),
-									'scheme' => [
-										'type' => \Elementor\Scheme_Color::get_type(),
-										'value' => \Elementor\Scheme_Color::COLOR_2,
-									],
+									'type' => \Elementor\Controls_Manager::COLOR,
 								],
 
 								[

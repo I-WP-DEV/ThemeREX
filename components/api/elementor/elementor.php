@@ -8,6 +8,9 @@
  */
 
 // Don't load directly
+use Elementor\Controls_Manager;
+use Elementor\Scheme_Color;
+
 if ( ! defined( 'TRX_ADDONS_VERSION' ) ) {
 	die( '-1' );
 }
@@ -15,13 +18,12 @@ if ( ! defined( 'TRX_ADDONS_VERSION' ) ) {
 
 // Check if plugin 'Elementor' is installed and activated
 // Attention! This function is used in many files and was moved to the api.php
-/*
-if ( !function_exists( 'trx_addons_exists_elementor' ) ) {
-	function trx_addons_exists_elementor() {
-		return class_exists('Elementor\Plugin');
-	}
-}
-*/
+
+//if ( !function_exists( 'trx_addons_exists_elementor' ) ) {
+//	function trx_addons_exists_elementor() {
+//		return class_exists('Elementor\Plugin');
+//	}
+//}
 
 // Return true if Elementor exists and current mode is preview
 if ( !function_exists( 'trx_addons_elm_is_preview' ) ) {
@@ -436,7 +438,7 @@ if (!function_exists('trx_addons_elm_init')) {
 							array(
 								'label' => $group['label'],
 								'tab' => empty($group['tab']) 
-											? \Elementor\Controls_Manager::TAB_CONTENT 
+											? Controls_Manager::TAB_CONTENT
 											: $group['tab']
 							)
 						);
@@ -468,7 +470,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						$params = array(
 										array(
 											'name' => 'icon',
-											'type' => \Elementor\Controls_Manager::ICON,
+											'type' => Controls_Manager::ICON,
 											'label' => __( 'Icon', 'trx_addons' ),
 											'label_block' => false,
 											'default' => '',
@@ -510,7 +512,7 @@ if (!function_exists('trx_addons_elm_init')) {
 					$params = array(
 						array(
 							"name" => "slider",
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							"label" => __("Slider", 'trx_addons'),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -518,7 +520,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "slides_space",
-							'type' => \Elementor\Controls_Manager::SLIDER,
+							'type' => Controls_Manager::SLIDER,
 							"label" => __('Space', 'trx_addons'),
 							"description" => wp_kses_data( __('Space between slides', 'trx_addons') ),
 							'condition' => array(
@@ -536,7 +538,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'slider_controls',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Slider controls', 'trx_addons' ),
 							'label_block' => false,
 							'options' => trx_addons_get_list_sc_slider_controls(),
@@ -547,7 +549,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'slider_pagination',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Slider pagination', 'trx_addons' ),
 							'label_block' => false,
 							'options' => trx_addons_get_list_sc_slider_paginations(),
@@ -558,7 +560,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "slides_centered",
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							"label" => __("Slides centered", 'trx_addons'),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -569,7 +571,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "slides_overflow",
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							"label" => __("Slides overflow visible", 'trx_addons'),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -580,7 +582,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "slider_mouse_wheel",
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							"label" => __("Mouse wheel enabled", 'trx_addons'),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -591,7 +593,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "slider_autoplay",
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							"label" => __("Enable autoplay", 'trx_addons'),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -611,7 +613,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						array(
 							'label' => $group===false ? __('Slider', 'trx_addons') : $group,
 							'section' => 'slider',
-							'tab' => \Elementor\Controls_Manager::TAB_LAYOUT
+							'tab' => Controls_Manager::TAB_LAYOUT
 						),
 						$this->get_slider_param(),
 						$add_params
@@ -623,7 +625,7 @@ if (!function_exists('trx_addons_elm_init')) {
 					$params = array(
 						array(
 							'name' => 'title_style',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Title style', 'trx_addons' ),
 							'label_block' => false,
 							'options' => apply_filters('trx_addons_sc_type', trx_addons_components_get_allowed_layouts('sc', 'title'), 'trx_sc_title'),
@@ -631,7 +633,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'title_tag',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Title tag', 'trx_addons' ),
 							'label_block' => false,
 							'options' => trx_addons_get_list_sc_title_tags(),
@@ -639,7 +641,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'title_align',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Title alignment', 'trx_addons' ),
 							'label_block' => false,
 							'options' => trx_addons_get_list_sc_aligns(),
@@ -649,23 +651,11 @@ if (!function_exists('trx_addons_elm_init')) {
 							'name' => 'title_color',
 							'label' => __( 'Title color', 'trx_addons' ),
 							'type' => \Elementor\Controls_Manager::COLOR,
-							'default' => '',
-							'description' => '',
-							'scheme' => array(
-								'type' => \Elementor\Scheme_Color::get_type(),
-								'value' => \Elementor\Scheme_Color::COLOR_1,
-							),
 						),
 						array(
 							'name' => 'title_color2',
 							'label' => __( 'Title color 2', 'trx_addons' ),
 							'type' => \Elementor\Controls_Manager::COLOR,
-							'default' => '',
-							'description' => '',
-							'scheme' => array(
-								'type' => \Elementor\Scheme_Color::get_type(),
-								'value' => \Elementor\Scheme_Color::COLOR_2,
-							),
 							'condition' => array(
 								'title_style' => 'gradient'
 							),
@@ -673,7 +663,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						array(
 							'name' => 'gradient_direction',
 							'label' => __( 'Gradient direction', 'trx_addons' ),
-							'type' => \Elementor\Controls_Manager::SLIDER,
+							'type' => Controls_Manager::SLIDER,
 							'default' => array(
 								'size' => 0,
 								'unit' => 'px'
@@ -691,7 +681,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'title',
-							'type' => \Elementor\Controls_Manager::TEXT,
+							'type' => Controls_Manager::TEXT,
 							'label' => __( "Title", 'trx_addons' ),
 							"description" => wp_kses_data( __("Title of the block. Enclose any words in {{ and }} to make them italic or in (( and )) to make them bold. If title style is 'accent' - bolded element styled as shadow, italic - as a filled circle", 'trx_addons') ),
 							'placeholder' => __( "Title", 'trx_addons' ),
@@ -700,7 +690,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "typed",
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							"label" => __("Use autotype", 'trx_addons'),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -711,7 +701,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "typed_loop",
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							"label" => __("Autotype loop", 'trx_addons'),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -723,7 +713,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "typed_cursor",
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							"label" => __("Autotype cursor", 'trx_addons'),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -735,7 +725,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'typed_strings',
-							'type' => \Elementor\Controls_Manager::TEXTAREA,
+							'type' => Controls_Manager::TEXTAREA,
 							'label' => __( 'Alternative strings', 'trx_addons' ),
 							'label_block' => true,
 							'description' => __( "Alternative strings to type. Attention! First string must be equal of the part of the title.", 'trx_addons' ),
@@ -751,19 +741,13 @@ if (!function_exists('trx_addons_elm_init')) {
 							'name' => 'typed_color',
 							'label' => __( 'Autotype color', 'trx_addons' ),
 							'type' => \Elementor\Controls_Manager::COLOR,
-							'default' => '',
-							'description' => '',
-							'scheme' => array(
-								'type' => \Elementor\Scheme_Color::get_type(),
-								'value' => \Elementor\Scheme_Color::COLOR_1,
-							),
 							'condition' => array(
 								'typed' => '1',
 							),
 						),
 						array(
 							"name" => "typed_speed",
-							'type' => \Elementor\Controls_Manager::SLIDER,
+							'type' => Controls_Manager::SLIDER,
 							"label" => __('Autotype speed', 'trx_addons'),
 							'condition' => array(
 								'typed' => '1',
@@ -781,7 +765,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "typed_delay",
-							'type' => \Elementor\Controls_Manager::SLIDER,
+							'type' => Controls_Manager::SLIDER,
 							"label" => __('Autotype delay (in sec.)', 'trx_addons'),
 							'separator' => 'after',
 							'condition' => array(
@@ -800,14 +784,14 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'subtitle',
-							'type' => \Elementor\Controls_Manager::TEXT,
+							'type' => Controls_Manager::TEXT,
 							'label' => __( "Subtitle", 'trx_addons' ),
 							'placeholder' => __( "Title text", 'trx_addons' ),
 							'default' => ''
 						),
 						array(
 							'name' => 'subtitle_align',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Subtitle alignment', 'trx_addons' ),
 							'label_block' => false,
 							'options' => trx_addons_get_list_sc_aligns(),
@@ -815,7 +799,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'subtitle_position',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Subtitle position', 'trx_addons' ),
 							'label_block' => false,
 							'options' => trx_addons_get_list_sc_subtitle_positions(),
@@ -823,7 +807,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'description',
-							'type' => \Elementor\Controls_Manager::TEXTAREA,
+							'type' => Controls_Manager::TEXTAREA,
 							'label' => __( 'Description', 'trx_addons' ),
 							'label_block' => true,
 							'placeholder' => __( "Short description of this block", 'trx_addons' ),
@@ -837,14 +821,14 @@ if (!function_exists('trx_addons_elm_init')) {
 					if ($button) {
 						$params[] = array(
 										'name' => 'link',
-										'type' => \Elementor\Controls_Manager::URL,
+										'type' => Controls_Manager::URL,
 										'label' => __( "Button's Link", 'trx_addons' ),
 										'label_block' => false,
 										'placeholder' => __( 'http://your-link.com', 'trx_addons' ),
 									);
 						$params[] = array(
 										'name' => 'link_text',
-										'type' => \Elementor\Controls_Manager::TEXT,
+										'type' => Controls_Manager::TEXT,
 										'label' => __( "Button's text", 'trx_addons' ),
 										'label_block' => false,
 										'placeholder' => __( "Link's text", 'trx_addons' ),
@@ -852,7 +836,7 @@ if (!function_exists('trx_addons_elm_init')) {
 									);
 						$params[] = array(
 										'name' => 'link_style',
-										'type' => \Elementor\Controls_Manager::SELECT,
+										'type' => Controls_Manager::SELECT,
 										'label' => __( "Button's style", 'trx_addons' ),
 										'label_block' => false,
 										'options' => apply_filters('trx_addons_sc_type', trx_addons_components_get_allowed_layouts('sc', 'button'), 'trx_sc_button'),
@@ -860,7 +844,7 @@ if (!function_exists('trx_addons_elm_init')) {
 									);
 						$params[] = array(
 										'name' => 'link_image',
-										'type' => \Elementor\Controls_Manager::MEDIA,
+										'type' => Controls_Manager::MEDIA,
 										'label' => __( "Button's image", 'trx_addons' ),
 										'default' => array(
 											'url' => '',
@@ -876,7 +860,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						array(
 							'label' => $group===false ? __('Title, Description & Button', 'trx_addons') : $group,
 							'section' => 'title',
-							'tab' => \Elementor\Controls_Manager::TAB_LAYOUT
+							'tab' => Controls_Manager::TAB_LAYOUT
 						),
 						$this->get_title_param(!isset($add_params['button']) || $add_params['button']),
 						$add_params
@@ -888,7 +872,7 @@ if (!function_exists('trx_addons_elm_init')) {
 					$params = array(
 						array(
 							'name' => 'ids',
-							'type' => \Elementor\Controls_Manager::TEXT,
+							'type' => Controls_Manager::TEXT,
 							'label' => __( "IDs to show", 'trx_addons' ),
 							"description" => wp_kses_data( __("Comma separated IDs list to show. If not empty - parameters 'cat', 'offset' and 'count' are ignored!", 'trx_addons') ),
 							'placeholder' => __( "IDs list", 'trx_addons' ),
@@ -896,7 +880,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "count",
-							'type' => \Elementor\Controls_Manager::SLIDER,
+							'type' => Controls_Manager::SLIDER,
 							"label" => __('Count', 'trx_addons'),
 							'condition' => array(
 								'ids' => '',
@@ -913,7 +897,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "columns",
-							'type' => \Elementor\Controls_Manager::SLIDER,
+							'type' => Controls_Manager::SLIDER,
 							"label" => __('Columns', 'trx_addons'),
 							"description" => wp_kses_data( __("Specify number of columns. If empty - auto detect by items number", 'trx_addons') ),
 							'default' => array(
@@ -928,7 +912,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							"name" => "offset",
-							'type' => \Elementor\Controls_Manager::SLIDER,
+							'type' => Controls_Manager::SLIDER,
 							"label" => __('Offset', 'trx_addons'),
 							"description" => wp_kses_data( __("Specify number of items to skip before showed items", 'trx_addons') ),
 							'condition' => array(
@@ -946,7 +930,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'orderby',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Order by', 'trx_addons' ),
 							'label_block' => false,
 							'options' => trx_addons_get_list_sc_query_orderby(),
@@ -954,7 +938,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'order',
-							'type' => \Elementor\Controls_Manager::SELECT,
+							'type' => Controls_Manager::SELECT,
 							'label' => __( 'Order', 'trx_addons' ),
 							'label_block' => false,
 							'options' => trx_addons_get_list_sc_query_orders(),
@@ -981,7 +965,7 @@ if (!function_exists('trx_addons_elm_init')) {
 					$params = array(
 						array(
 							'name' => 'hide_on_wide',
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							'label' => __( 'Hide on wide screens', 'trx_addons' ),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -989,7 +973,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'hide_on_desktop',
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							'label' => __( 'Hide on desktops', 'trx_addons' ),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -997,7 +981,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'hide_on_notebook',
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							'label' => __( 'Hide on notebooks', 'trx_addons' ),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -1005,7 +989,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'hide_on_tablet',
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							'label' => __( 'Hide on tablets', 'trx_addons' ),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -1013,7 +997,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						),
 						array(
 							'name' => 'hide_on_mobile',
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							'label' => __( 'Hide on mobile devices', 'trx_addons' ),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -1023,7 +1007,7 @@ if (!function_exists('trx_addons_elm_init')) {
 					if ($hide_on_frontpage) {
 						$params[] = array(
 							'name' => 'hide_on_frontpage',
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							'label' => __( 'Hide on Frontpage', 'trx_addons' ),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -1031,7 +1015,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						);
 						$params[] = array(
 							'name' => 'hide_on_singular',
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							'label' => __( 'Hide on single posts', 'trx_addons' ),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -1039,7 +1023,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						);
 						$params[] = array(
 							'name' => 'hide_on_other',
-							'type' => \Elementor\Controls_Manager::SWITCHER,
+							'type' => Controls_Manager::SWITCHER,
 							'label' => __( 'Hide on other pages', 'trx_addons' ),
 							'label_off' => __( 'Off', 'trx_addons' ),
 							'label_on' => __( 'On', 'trx_addons' ),
@@ -1055,7 +1039,7 @@ if (!function_exists('trx_addons_elm_init')) {
 						array(
 							'label' => $group===false ? __('Hide', 'trx_addons') : $group,
 							'section' => 'hide',
-							'tab' => \Elementor\Controls_Manager::TAB_LAYOUT
+							'tab' => Controls_Manager::TAB_LAYOUT
 						),
 						$this->get_hide_param(!empty($add_params['hide_on_frontpage'])),
 						$add_params
@@ -1266,14 +1250,14 @@ if (!function_exists('trx_addons_elm_add_params_inside_section')) {
 		// to enable align columns in the stretched rows on the page content area
 		if ( $el_name == 'column' && $section_id == 'layout' ) {
 			$element->add_responsive_control( 'content_width', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Content width", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_widths('none', false),
 									'default' => 'none',
 									'prefix_class' => 'sc%s_inner_width_',
 								) );
 			$element->add_responsive_control( 'content_align', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Content alignment", 'trx_addons'),
 									'options' => array(
 										'inherit'    => __("Default", 'trx_addons'),
@@ -1294,7 +1278,7 @@ if (!function_exists('trx_addons_elm_add_params_inside_section')) {
 			) {
 
 			$element->add_control( 'hide_bg_image_on_tablet', array(
-									'type' => \Elementor\Controls_Manager::SWITCHER,
+									'type' => Controls_Manager::SWITCHER,
 									'label' => __( 'Hide bg image on the tablet', 'trx_addons' ),
 									'label_on' => __( 'Hide', 'trx_addons' ),
 									'label_off' => __( 'Show', 'trx_addons' ),
@@ -1302,7 +1286,7 @@ if (!function_exists('trx_addons_elm_add_params_inside_section')) {
 									'prefix_class' => 'hide_bg_image_on_',
 								) );
 			$element->add_control( 'hide_bg_image_on_mobile', array(
-									'type' => \Elementor\Controls_Manager::SWITCHER,
+									'type' => Controls_Manager::SWITCHER,
 									'label' => __( 'Hide bg image on the mobile', 'trx_addons' ),
 									'label_on' => __( 'Hide', 'trx_addons' ),
 									'label_off' => __( 'Show', 'trx_addons' ),
@@ -1322,7 +1306,7 @@ if (!function_exists('trx_addons_elm_add_params_inside_section')) {
 							'trx_addons_responsive_heading',
 							array(
 								'label' => __( 'Theme-specific params', 'trx_addons' ),
-								'type' => \Elementor\Controls_Manager::HEADING,
+								'type' => Controls_Manager::HEADING,
 								'separator' => 'before',
 							)
 						);
@@ -1330,7 +1314,7 @@ if (!function_exists('trx_addons_elm_add_params_inside_section')) {
 							'trx_addons_responsive_description',
 							array(
 								'raw' => __( "Theme-specific parameters - you can use them instead of the Elementor's parameters above.", 'trx_addons' ),
-								'type' => \Elementor\Controls_Manager::RAW_HTML,
+								'type' => Controls_Manager::RAW_HTML,
 								'content_classes' => 'elementor-descriptor',
 							)
 						);
@@ -1352,14 +1336,14 @@ if (!function_exists('trx_addons_elm_add_params_inside_section')) {
 			|| ($el_name == 'text-editor' && $section_id == 'section_background')
 			) {
 			$element->add_control( 'extra_bg', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Extend background", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_extra_bg(''),
 									'default' => '',
 									'prefix_class' => 'sc_extra_bg_'
 									) );
 			$element->add_control( 'extra_bg_mask', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Background mask", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_extra_bg_mask(''),
 									'default' => '',
@@ -1371,7 +1355,7 @@ if (!function_exists('trx_addons_elm_add_params_inside_section')) {
 		if ( ($el_name == 'spacer' && $section_id == 'section_spacer')
 				  || ($el_name == 'divider' && $section_id == 'section_divider')) {
 			$element->add_control( 'alter_height', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => $el_name == 'divider' ? __("Alter gap", 'trx_addons') : __("Alter height", 'trx_addons'),
 									'label_block' => true,
 									'options' => trx_addons_get_list_sc_empty_space_heights(''),
@@ -1448,13 +1432,13 @@ if (!function_exists('trx_addons_elm_add_params_to_columns')) {
 		) {
 			
 			$element->start_controls_section( 'section_trx_layout',	array(
-																		'tab' => \Elementor\Controls_Manager::TAB_LAYOUT,
+																		'tab' => Controls_Manager::TAB_LAYOUT,
 																		'label' => __( 'Position', 'trx_addons' )
 																	) );
 			// Add 'Fix column' to the columns
 			if ($element->get_name() == 'column') {
 				$element->add_control( 'fix_column', array(
-									'type' => \Elementor\Controls_Manager::SWITCHER,
+									'type' => Controls_Manager::SWITCHER,
 									'label' => __( 'Fix column', 'trx_addons' ),
 									'description' => wp_kses_data( __("Fix this column when page scrolling. Attention! At least one column in the row must have a greater height than this column", 'trx_addons') ),
 									'label_on' => __( 'Fix', 'trx_addons' ),
@@ -1464,14 +1448,14 @@ if (!function_exists('trx_addons_elm_add_params_to_columns')) {
 									) );
 			}
 			$element->add_control( 'shift_x', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Shift block along the X-axis", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_shift(''),
 									'default' => '',
 									'prefix_class' => 'sc_shift_x_'
 									) );
 			$element->add_control( 'shift_y', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Shift block along the Y-axis", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_shift(''),
 									'default' => '',
@@ -1479,14 +1463,14 @@ if (!function_exists('trx_addons_elm_add_params_to_columns')) {
 									) );
 			
 			$element->add_control( 'push_x', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Push block along the X-axis", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_shift(''),
 									'default' => '',
 									'prefix_class' => 'sc_push_x_'
 									) );
 			$element->add_control( 'push_y', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Push block along the Y-axis", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_shift(''),
 									'default' => '',
@@ -1494,14 +1478,14 @@ if (!function_exists('trx_addons_elm_add_params_to_columns')) {
 									) );
 			
 			$element->add_control( 'pull_x', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Pull next block along the X-axis", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_shift(''),
 									'default' => '',
 									'prefix_class' => 'sc_pull_x_'
 									) );
 			$element->add_control( 'pull_y', array(
-									'type' => \Elementor\Controls_Manager::SELECT,
+									'type' => Controls_Manager::SELECT,
 									'label' => __("Pull next block along the Y-axis", 'trx_addons'),
 									'options' => trx_addons_get_list_sc_content_shift(''),
 									'default' => '',
@@ -1524,7 +1508,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 		if ( $element->get_name() == 'section' && $section_id == 'section_border' ) {
 
 			$element->start_controls_section( 'section_trx_parallax',	array(
-																		'tab' => !empty($args['tab']) ? $args['tab'] : \Elementor\Controls_Manager::TAB_ADVANCED,
+																		'tab' => !empty($args['tab']) ? $args['tab'] : Controls_Manager::TAB_ADVANCED,
 																		'label' => __( 'Parallax', 'trx_addons' )
 																	) );
 
@@ -1532,14 +1516,14 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 				'parallax_blocks',
 				array(
 					'label' => __( 'Parallax blocks', 'trx_addons' ),
-					'type' => \Elementor\Controls_Manager::REPEATER,
+					'type' => Controls_Manager::REPEATER,
 					'fields' => apply_filters('trx_addons_sc_param_group_params',
 						array(
 							array(
 								'name' => 'type',
 								'label' => __( 'Block handle', 'trx_addons' ),
 								'label_block' => false,
-								'type' => \Elementor\Controls_Manager::SELECT,
+								'type' => Controls_Manager::SELECT,
 								'options' => array(
 									'none'   => __('None', 'trx_addons'),
 									'mouse'  => __('Mouse events', 'trx_addons'),
@@ -1551,7 +1535,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 								'name' => 'animation_prop',
 								'label' => __( 'Animation', 'trx_addons' ),
 								'label_block' => false,
-								'type' => \Elementor\Controls_Manager::SELECT,
+								'type' => Controls_Manager::SELECT,
 								'options' => array(
 									'background'  => __('Background', 'trx_addons'),
 									'transform'   => __('Transform', 'trx_addons'),
@@ -1562,7 +1546,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 							array(
 								'name' => 'image',
 								'label' => __( 'Background image', 'trx_addons' ),
-								'type' => \Elementor\Controls_Manager::MEDIA,
+								'type' => Controls_Manager::MEDIA,
 								'default' => array(
 									'url' => '',
 								),
@@ -1571,7 +1555,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 								'name' => 'bg_size',
 								'label' => __( 'Background size', 'trx_addons' ),
 								'label_block' => false,
-								'type' => \Elementor\Controls_Manager::SELECT,
+								'type' => Controls_Manager::SELECT,
 								'options' => array(
 									'auto'    => __('Auto', 'trx_addons'),
 									'cover'   => __('Cover', 'trx_addons'),
@@ -1582,7 +1566,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 							array(
 								'name' => 'left',
 								'label' => __( 'Left position (in %)', 'trx_addons' ),
-								'type' => \Elementor\Controls_Manager::SLIDER,
+								'type' => Controls_Manager::SLIDER,
 								'default' => array(
 									'size' => 0,
 									'unit' => 'px'
@@ -1598,7 +1582,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 							array(
 								'name' => 'top',
 								'label' => __( 'Top position (in %)', 'trx_addons' ),
-								'type' => \Elementor\Controls_Manager::SLIDER,
+								'type' => Controls_Manager::SLIDER,
 								'default' => array(
 									'size' => 0,
 									'unit' => 'px'
@@ -1614,7 +1598,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 							array(
 								'name' => 'speed',
 								'label' => __( 'Shift speed', 'trx_addons' ),
-								'type' => \Elementor\Controls_Manager::SLIDER,
+								'type' => Controls_Manager::SLIDER,
 								'default' => array(
 									'size' => 50,
 									'unit' => 'px'
@@ -1630,7 +1614,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 							array(
 								'name' => 'z_index',
 								'label' => __( 'Z-index', 'trx_addons' ),
-								'type' => \Elementor\Controls_Manager::SLIDER,
+								'type' => Controls_Manager::SLIDER,
 								'default' => array(
 									'size' => '',
 									'unit' => 'px'
@@ -1647,7 +1631,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_rows')) {
 								'name' => 'class',
 								'label' => __( 'CSS class', 'trx_addons' ),
 								'description' => __( 'Class name to assign additional rules to this block. For example: "hide_on_notebook", "hide_on_tablet", "hide_on_mobile" to hide block on the relative device', 'trx_addons' ),
-								'type' => \Elementor\Controls_Manager::TEXT,
+								'type' => Controls_Manager::TEXT,
 								'default' => '',
 							),
 						),
@@ -1690,11 +1674,11 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 		if ( $element->get_name() == 'common' && in_array($section_id, array('section_border', '_section_border')) ) {
 			
 			$element->start_controls_section( 'section_trx_parallax', array(
-																		'tab' => !empty($args['tab']) ? $args['tab'] : \Elementor\Controls_Manager::TAB_ADVANCED,
+																		'tab' => !empty($args['tab']) ? $args['tab'] : Controls_Manager::TAB_ADVANCED,
 																		'label' => __( 'Parallax or Entrance', 'trx_addons' )
 																	) );
 			$element->add_control( 'parallax', array(
-													'type' => \Elementor\Controls_Manager::SWITCHER,
+													'type' => Controls_Manager::SWITCHER,
 													'label' => __( 'Parallax', 'trx_addons' ),
 													'label_on' => __( 'On', 'trx_addons' ),
 													'label_off' => __( 'Off', 'trx_addons' ),
@@ -1702,7 +1686,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 													'prefix_class' => 'sc_',
 									) );
 			$element->add_control( 'parallax_entrance', array(
-													'type' => \Elementor\Controls_Manager::SWITCHER,
+													'type' => Controls_Manager::SWITCHER,
 													'label' => __( 'Entrance', 'trx_addons' ),
 													'label_on' => __( 'On', 'trx_addons' ),
 													'label_off' => __( 'Off', 'trx_addons' ),
@@ -1713,7 +1697,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 													),
 									) );
 			$element->add_control( 'parallax_start', array(
-													'type' => \Elementor\Controls_Manager::SWITCHER,
+													'type' => Controls_Manager::SWITCHER,
 													'label' => __( 'Values below are', 'trx_addons' ),
 													'label_on' => __( 'Start', 'trx_addons' ),
 													'label_off' => __( 'End', 'trx_addons' ),
@@ -1724,7 +1708,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 													),
 									) );
 			$element->add_control( 'parallax_ease', array(
-													'type' => \Elementor\Controls_Manager::SELECT,
+													'type' => Controls_Manager::SELECT,
 													'label' => __( 'Entrance ease', 'trx_addons' ),
 													'label_block' => false,
 													'options' => trx_addons_get_list_ease(),
@@ -1735,7 +1719,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 													),
 									) );
 			$element->add_control( 'parallax_text', array(
-													'type' => \Elementor\Controls_Manager::SELECT,
+													'type' => Controls_Manager::SELECT,
 													'label' => __( 'Text animation', 'trx_addons' ),
 													'label_block' => false,
 													'options' => array(
@@ -1750,7 +1734,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 									) );
 			$element->add_control( 'parallax_x', array(
 													'label' => __( 'The shift along the X-axis (in px)', 'trx_addons' ),
-													'type' => \Elementor\Controls_Manager::SLIDER,
+													'type' => Controls_Manager::SLIDER,
 													'default' => array(
 														'size' => 0,
 														'unit' => 'px'
@@ -1768,7 +1752,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 									) );
 			$element->add_control( 'parallax_y', array(
 													'label' => __( 'The shift along the Y-axis (in px)', 'trx_addons' ),
-													'type' => \Elementor\Controls_Manager::SLIDER,
+													'type' => Controls_Manager::SLIDER,
 													'default' => array(
 														'size' => 0,
 														'unit' => 'px'
@@ -1787,7 +1771,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 
 			$element->add_control( 'parallax_opacity', array(
 													'label' => __( 'Change the opacity', 'trx_addons' ),
-													'type' => \Elementor\Controls_Manager::SLIDER,
+													'type' => Controls_Manager::SLIDER,
 													'default' => array(
 														'size' => 0,
 														'unit' => 'px'
@@ -1807,7 +1791,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 
 			$element->add_control( 'parallax_scale', array(
 													'label' => __( 'Change the scale (in %)', 'trx_addons' ),
-													'type' => \Elementor\Controls_Manager::SLIDER,
+													'type' => Controls_Manager::SLIDER,
 													'default' => array(
 														'size' => 0,
 														'unit' => 'px'
@@ -1826,7 +1810,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 
 			$element->add_control( 'parallax_rotate', array(
 													'label' => __( 'Change the rotation (in deg)', 'trx_addons' ),
-													'type' => \Elementor\Controls_Manager::SLIDER,
+													'type' => Controls_Manager::SLIDER,
 													'default' => array(
 														'size' => 0,
 														'unit' => 'px'
@@ -1846,7 +1830,7 @@ if (!function_exists('trx_addons_elm_add_parallax_params_to_widgets')) {
 
 			$element->add_control( 'parallax_duration', array(
 													'label' => __( 'Duration (in sec)', 'trx_addons' ),
-													'type' => \Elementor\Controls_Manager::SLIDER,
+													'type' => Controls_Manager::SLIDER,
 													'default' => array(
 														'size' => 1,
 														'unit' => 'px'
@@ -1904,7 +1888,7 @@ if (!function_exists('trx_addons_elm_add_params_fly')) {
 		if ( in_array($element->get_name(), array('common')) && in_array($section_id, array('section_border', '_section_border')) ) {
 			
 			$element->start_controls_section( 'section_trx_fly', array(
-																		'tab' => !empty($args['tab']) ? $args['tab'] : \Elementor\Controls_Manager::TAB_ADVANCED,
+																		'tab' => !empty($args['tab']) ? $args['tab'] : Controls_Manager::TAB_ADVANCED,
 																		'label' => __( 'Fly', 'trx_addons' )
 																	) );
 			$element->add_control(
@@ -1912,7 +1896,7 @@ if (!function_exists('trx_addons_elm_add_params_fly')) {
 				array(
 					'label' => __( 'Fly', 'trx_addons' ),
 					'label_block' => false,
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'options' => array_merge(
 									array('static' => __('Static', 'trx_addons')),
 									array('custom' => __('Custom', 'trx_addons')),
@@ -1924,7 +1908,7 @@ if (!function_exists('trx_addons_elm_add_params_fly')) {
 			);
 			$coord = array(
 							'label' => __( 'Left', 'trx_addons' ),
-							'type' => \Elementor\Controls_Manager::SLIDER,
+							'type' => Controls_Manager::SLIDER,
 							'default' => array(
 								'size' => '',
 								'unit' => 'px'
@@ -1964,7 +1948,7 @@ if (!function_exists('trx_addons_elm_add_params_fly')) {
 
 			$element->add_responsive_control( 'fly_scale', array(
 													'label' => __( 'Scale', 'trx_addons' ),
-													'type' => \Elementor\Controls_Manager::SLIDER,
+													'type' => Controls_Manager::SLIDER,
 													'default' => array(
 														'size' => '',
 														'unit' => 'px'
@@ -1984,7 +1968,7 @@ if (!function_exists('trx_addons_elm_add_params_fly')) {
 
 			$element->add_responsive_control( 'fly_rotate', array(
 													'label' => __( 'Rotation (in deg)', 'trx_addons' ),
-													'type' => \Elementor\Controls_Manager::SLIDER,
+													'type' => Controls_Manager::SLIDER,
 													'default' => array(
 														'size' => '',
 														'unit' => 'px'

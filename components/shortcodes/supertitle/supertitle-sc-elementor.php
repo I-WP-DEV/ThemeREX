@@ -185,10 +185,6 @@ if (!function_exists('trx_addons_sc_supertitle_add_in_trx_addons')) {
 					[
 						'label' => __( 'Color', 'elementor' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_1,
-						],
 						'default' => '',
 						'selectors' => [
 							'{{WRAPPER}} .sc_supertitle_no_icon' => 'background-color: {{VALUE}};',
@@ -202,10 +198,6 @@ if (!function_exists('trx_addons_sc_supertitle_add_in_trx_addons')) {
 					[
 						'label' => __( 'Background color', 'elementor' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
-						'scheme' => [
-							'type' => \Elementor\Scheme_Color::get_type(),
-							'value' => \Elementor\Scheme_Color::COLOR_2,
-						],
 						'default' => '',
 						'selectors' => [
 							'{{WRAPPER}} .sc_icon_type_icons' => 'background-color: {{VALUE}}; border-radius: 50%; padding: 20%;',
@@ -379,12 +371,6 @@ if (!function_exists('trx_addons_sc_supertitle_add_in_trx_addons')) {
 									'name' => 'color',
 									'label' => __( 'Color', 'trx_addons' ),
 									'type' => \Elementor\Controls_Manager::COLOR,
-									'default' => '',
-									'description' => '',
-									'scheme' => [
-										'type' => \Elementor\Scheme_Color::get_type(),
-										'value' => \Elementor\Scheme_Color::COLOR_1,
-									],
 									'condition' => [
 										'item_type' => ['text', 'icon']
 									]
@@ -393,12 +379,6 @@ if (!function_exists('trx_addons_sc_supertitle_add_in_trx_addons')) {
 									'name' => 'color2',
 									'label' => __( 'Color 2', 'trx_addons' ),
 									'type' => \Elementor\Controls_Manager::COLOR,
-									'default' => '',
-									'description' => '',
-									'scheme' => [
-										'type' => \Elementor\Scheme_Color::get_type(),
-										'value' => \Elementor\Scheme_Color::COLOR_2,
-									],
 									'condition' => [
 										'item_type' => ['text']
 									]
