@@ -1,0 +1,35 @@
+/*----- RTL -----*/
+
+[class*="trx_addons_dashboard_widget_section_item_label_"]:before {
+    margin-left: 0.5em;
+    margin-right: 0;
+}
+.trx_addons_dashboard_widget_section_item_status_high {
+    border-right-color: #00a000;
+}
+[class*="trx_addons_dashboard_widget_section_item_status_"] {
+    margin-right: -12px;
+    margin-left: 0;
+    padding: 8px 12px 8px 4px;
+    border-right-width: 4px;
+	border-left-width: 0;
+}
+.trx_addons_dashboard_widget_section_footer_item + .trx_addons_dashboard_widget_section_footer_item {
+    border-right: 1px solid #eee;
+    border-left: 0px solid #eee;
+    padding-right: 0.5em;
+    padding-left: 0;
+}
+.trx_addons_dashboard_widget_section_footer_item {
+    padding: 0 0 0 0.5em;
+}
+.trx_addons_icon_selector + .trx_addons_list_icons {
+    padding: 0 1px 1px 0;
+    left: auto!important;
+}
+.trx_addons_options_item input[type="text"] {
+    direction: rtl;
+}
+.trx_addons_tabs > ul.ui-tabs-nav > li + li {
+    margin-right: 3px;
+}

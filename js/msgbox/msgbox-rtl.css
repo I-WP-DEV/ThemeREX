@@ -1,0 +1,13 @@
+/*----- RTL Styles -----*/
+
+.trx_addons_msgbox .trx_addons_msgbox_icon {
+    right: 18px;
+    left: auto;
+}
+.trx_addons_msgbox .trx_addons_msgbox_close {
+    left: 0;
+    right: auto;
+}
+.trx_addons_msgbox .trx_addons_msgbox_header {
+    padding: 1em 3.75em 1em 2em;
+}

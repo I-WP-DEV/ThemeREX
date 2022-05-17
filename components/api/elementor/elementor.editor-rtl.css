@@ -1,0 +1,6 @@
+/*----- RTL -----*/
+
+#elementor-panel-categories .elementor-panel-category-title:before {
+    left: 8px;
+    right: auto;
+}

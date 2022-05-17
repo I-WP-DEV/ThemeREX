@@ -1,0 +1,15 @@
+/*----- RTL -----*/
+
+.trx_importer_advanced_settings_title:after {
+    left: 1em;
+    right: auto; 
+}
+.trx_importer_part_pages {
+    margin: 0 2em 1em 0;
+}
+.trx_importer_advanced_settings_title {
+    padding: 1em 1em 1em 4em;
+}
+.trx_addons_tabs_section #trx_importer_form .trx_buttons {
+    text-align: left;
+}

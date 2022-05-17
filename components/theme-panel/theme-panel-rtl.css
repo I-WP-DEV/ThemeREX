@@ -1,0 +1,49 @@
+/*----- RTL Styles -----*/
+
+.trx_addons_theme_panel .trx_addons_tabs_section {
+    margin-left: 2em;
+    margin-right: 0;
+}
+.trx_addons_theme_panel_sys_info table th {
+    text-align: right;
+}
+[class*="trx_addons_theme_panel_section_title_label"] {
+    margin-right: 1em;
+    margin-left: 0;
+}
+.trx_addons_theme_panel_plugins_group_title:after {
+    left: 1em;
+    right: auto;
+}
+.trx_addons_theme_panel_plugins_list_item_check {
+    margin-left: 1.5em;
+    margin-right: 0;
+}
+.trx_addons_theme_panel_plugins_list_item_info {
+    padding-right: 1.5em;
+    padding-left: 0;
+}
+.trx_addons_theme_panel_plugins_list_item_state {
+    left: -18px;
+    right: auto;
+}
+.trx_addons_theme_panel_plugins_list_item_state:before {
+    right: 1em;
+    left: auto;
+    border-width: 4px 0 0 7px;
+}
+.trx_addons_theme_panel_plugins_group_title {
+    padding: 0.75em 1em 0.75em 5em;
+}
+.trx_addons_theme_panel .trx_buttons {
+    text-align: left;
+}
+.trx_addons_theme_panel_plugins_list + .trx_addons_theme_panel_plugins_buttons {
+    text-align: left;
+}
+
+
+.trx_addons_panel_wizard > ul > li > a:before {
+    margin-right: 0!important;
+    margin-left: 5px;
+}
