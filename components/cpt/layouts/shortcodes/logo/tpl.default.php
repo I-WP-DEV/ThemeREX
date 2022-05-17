@@ -23,20 +23,12 @@ $args = get_query_var('trx_addons_args_sc_layouts_logo');
 				?>"<?php
 		if (!empty($args['css'])) echo ' style="'.esc_attr($args['css']).'"';
 	?>><?php
-	if (!empty($args['logo'])) {
-		$logo = trx_addons_get_attachment_url($args['logo'], 'full');
+	if (!empty($args['logo_extra']['id'])) {
+		$logo = trx_addons_get_attachment_url($args['logo_extra']['id'], 'full');
 		if (!empty($logo)) {
 			$attr = trx_addons_getimagesize($logo);
 			?><img class="logo_image"
 					src="<?php echo esc_url($logo); ?>"
-					<?php
-					if (!empty($args['logo_retina'])) {
-						$logo_retina = trx_addons_get_attachment_url($args['logo_retina'], 'full');
-						?>
-						srcset="<?php echo esc_url( $logo_retina ); ?> 2x"
-						<?php
-					}
-					?>
 					alt="<?php echo esc_attr(!empty($args['logo_text']) ? $args['logo_text'] : get_bloginfo( 'name' )); ?>" <?php
 					if (!empty($attr[3])) trx_addons_show_layout($attr[3]);
 			?>><?php

@@ -155,7 +155,8 @@ if (!function_exists('trx_addons_sc_layouts_logo_add_in_elementor')) {
 						'description' => wp_kses_data( __("Select or upload image for site's logo. If empty - theme-specific logo is used", 'trx_addons') ),
 						'type' => \Elementor\Controls_Manager::MEDIA,
 						'default' => [
-							'url' => '',
+							'id' => '',
+							'url'=>\Elementor\Utils::get_placeholder_image_src()
 						]
 					]
 				);
